@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 /**
- * Creado por SOPWEB.
+ * Creado por Vladimir Salguero.
  */
 public class NoticesAdapter extends RecyclerView.Adapter<NoticesAdapter.ViewHolder> {
 
@@ -27,6 +27,7 @@ public class NoticesAdapter extends RecyclerView.Adapter<NoticesAdapter.ViewHold
 
     public final static String EXTRA_ID = "extra_id";
 
+    //root url for images
     private static final String URL = "https://www.itcha.edu.sv/publicaciones/";
 
 
@@ -36,10 +37,9 @@ public class NoticesAdapter extends RecyclerView.Adapter<NoticesAdapter.ViewHold
     //Constructor of this class
     public NoticesAdapter(List<Notice> notices, Context context) {
         super();
-        //Getting all superheroes
+        //Getting all notices
         this.notices = notices;
         this.context = context;
-        //this.notices.addAll(notices);
         notifyDataSetChanged();
     }
 
@@ -70,10 +70,6 @@ public class NoticesAdapter extends RecyclerView.Adapter<NoticesAdapter.ViewHold
         holder.titulo.setText(notice.getTitulo());
         holder.descripcion.setText(notice.getDescripcion() + "...");
         holder.fechaPub.setText(notice.getFechaPub());
-        holder.idNoticia.setText(String.valueOf(notice.getId()));
-        holder.tiponoticia.setText(notice.getTipo());
-
-        //holder.titulo.setOnClickListener(this);
     }
 
 
@@ -89,8 +85,6 @@ public class NoticesAdapter extends RecyclerView.Adapter<NoticesAdapter.ViewHold
         public TextView titulo;
         public TextView descripcion;
         public TextView fechaPub;
-        public TextView idNoticia;
-        public TextView tiponoticia;
 
         //Initializing Views
         public ViewHolder(final View itemView) {
@@ -99,8 +93,6 @@ public class NoticesAdapter extends RecyclerView.Adapter<NoticesAdapter.ViewHold
             titulo = (TextView) itemView.findViewById(R.id.titulo);
             descripcion = (TextView) itemView.findViewById(R.id.descripcion);
             fechaPub = (TextView) itemView.findViewById(R.id.fechaPub);
-            idNoticia = (TextView) itemView.findViewById(R.id.idnotice);
-            tiponoticia = (TextView) itemView.findViewById(R.id.tiponotice);
 
             imageView.setOnClickListener(this);
 
