@@ -1,7 +1,7 @@
 package com.android_json;
 
 /**
- * Created by SOPWEB on 11/08/2016.
+ * Created by Vladimir Salguero on 11/08/2016.
  */
 
 import android.content.Context;
@@ -16,7 +16,6 @@ import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.Volley;
 
 
 public final class MySocialMediaSingleton {
@@ -58,13 +57,6 @@ public final class MySocialMediaSingleton {
         return imageLoader;
     }
 
-    /*public RequestQueue getRequestQueue() {
-        if (requestQueue == null) {
-            requestQueue = Volley.newRequestQueue(context.getApplicationContext());
-        }
-        return requestQueue;
-    }
-*/
     public void addToRequestQueue(Request req) {
         getRequestQueue().add(req);
     }

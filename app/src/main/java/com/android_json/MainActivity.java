@@ -2,7 +2,6 @@ package com.android_json;
 
 import com.android.volley.Cache;
 import com.android.volley.NetworkResponse;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -24,33 +23,24 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Creating a List of superheroes
+    //Creating a List of notices class
     private List<Notice> listNotices;
 
     //Creating Views
     private RecyclerView mLista;
     private RecyclerView.Adapter mAdapter;
 
-
-    //Volley Request Queue
-    private RequestQueue requestQueue;
-
     StaggeredGridLayoutManager mStaggeredGridLayoutManager;
-
 
     int mCount = 0;
 
-
     SwipeRefreshLayout mSwipeRefreshLayout;
-
-    int mSpans;
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.notices_layout);
+        setContentView(R.layout.activity_main);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
 
         mLista = (RecyclerView) findViewById(R.id.listaNoticias);
@@ -64,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         mLista.setLayoutManager(mStaggeredGridLayoutManager);
 
-        //Initializing our superheroes list
+        //Initializing our notices list
         listNotices = new ArrayList<>();
 
         mLista.setOnScrollListener(new EndlessRecyclerOnScrollListener(mStaggeredGridLayoutManager) {
@@ -136,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        //((MainActivity) getApplicationContext()).snackMessage(R.string.no_more_data);
                         mSwipeRefreshLayout.setRefreshing(false);
                     }
                 }) {
@@ -159,8 +148,6 @@ public class MainActivity extends AppCompatActivity {
                 return Response.success(resp.result, entry);
             }
         };
-
-        //jsonArrayRequest.setShouldCache(false);
         return jsonArrayRequest;
     }
 
@@ -186,19 +173,18 @@ public class MainActivity extends AppCompatActivity {
                 //Getting json
                 json = array.getJSONObject(i);
 
-                //Adding data to the superhero object
+                //Adding data to the notice object
                 notice.setId(json.getInt(Config.TAG_ID));
                 notice.setImagen(json.getString(Config.TAG_IMAGE));
                 notice.setTitulo(json.getString(Config.TAG_TITULO));
                 notice.setDescripcion(json.getString(Config.TAG_DESCRIPCION));
-                notice.setNombrecorto(json.getString(Config.TAG_NOMBRECORTO));
                 notice.setFecha(json.getString(Config.TAG_FECHA));
+                notice.setNombrecorto(json.getString(Config.TAG_NOMBRECORTO));
                 notice.setFechaPub(json.getString(Config.TAG_FECHAPUB));
-                notice.setTipo(json.getString(Config.TAG_TIPO));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            //Adding the superhero object to the list
+            //Adding the notice object to the list
             listNotices.add(notice);
         }
 

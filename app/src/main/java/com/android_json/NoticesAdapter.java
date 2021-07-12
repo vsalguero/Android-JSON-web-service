@@ -2,17 +2,12 @@ package com.android_json;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
-
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-
 import java.util.List;
-
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -21,17 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class NoticesAdapter extends RecyclerView.Adapter<NoticesAdapter.ViewHolder> {
 
-    //Imageloader to load image
-    private ImageLoader imageLoader;
     private Context context;
-
-    public final static String EXTRA_ID = "extra_id";
 
     //root url for images
     private static final String URL = "https://www.itcha.edu.sv/publicaciones/";
 
-
-    //List to store all superheroes
+    //List to store all notices
     List<Notice> notices;
 
     //Constructor of this class
@@ -63,7 +53,7 @@ public class NoticesAdapter extends RecyclerView.Adapter<NoticesAdapter.ViewHold
 
         // Petición el image loader
         ImageLoader imageLoader = MySocialMediaSingleton.getInstance(context).getImageLoader();
-// Petición
+// Request
 
         //Showing data on the views
         holder.imageView.setImageUrl(url_new, imageLoader);

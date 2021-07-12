@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 /**
- * Created by SOPWEB on 24/08/2016.
+ * Created by Vladimir Salguero on 24/08/2016.
  */
 
 
