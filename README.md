@@ -3,9 +3,11 @@
 ## This Android Sample use a JSON Web Service
 ## URL: https://www.itcha.edu.sv/android-json/feed.php?page=1
 
-### Use EndlessRecyclerOnScrollListener for implement infinite scroll
-### Android volley.toolbox.NetworkImageView for cache the data
-### RecyclerView with CardView
+### Made with Android Studio 4.2.1
+
+#### Use EndlessRecyclerOnScrollListener for implement infinite scroll
+#### Android volley.toolbox.NetworkImageView for cache the data
+#### RecyclerView with CardView
 
 ### Result
 
